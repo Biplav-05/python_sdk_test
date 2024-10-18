@@ -27,6 +27,10 @@ jobs:
           pip install -r requirements.txt
           pip install wheel twine setuptools
 
+      # Clean dist directory
+      - name: Clean dist directory
+        run: rm -rf dist/*
+
       # Install Node.js dependencies, including release-it
       - name: Install Node.js dependencies
         run: npm ci
