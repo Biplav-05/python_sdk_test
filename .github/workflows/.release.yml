@@ -1,0 +1,60 @@
+name: Release & Publish to PyPI
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: 'Specify release type: regular, alpha, beta, or rc'
+        required: true
+        default: 'regular'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      # Store the release type from workflow input to reuse it across steps
+      RELEASE_TYPE: ${{ github.event.inputs.release-type }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install wheel twine
+
+      # Install Node.js dependencies, including release-it
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      # Run release-it
+      - name: Run release-it
+        run: |
+          if [ "$RELEASE_TYPE" == "regular" ]; then
+            npx release-it
+          else
+            npx release-it --preRelease=$RELEASE_TYPE
+          fi
+        env:
+          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+
+      # If the release step fails, print and upload the NPM error log
+      - name: Print NPM error log
+        if: failure()
+        run: |
+          echo "Release process failed. Check the NPM error log for details."
+          cat /home/runner/.npm/_logs/*-debug-0.log
+
+      # Upload NPM error log if release fails
+      - name: Upload NPM error log
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: npm-error-log
+          path: /home/runner/.npm/_logs/*-debug-0.log
