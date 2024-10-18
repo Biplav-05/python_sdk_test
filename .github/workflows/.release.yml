@@ -15,12 +15,22 @@ jobs:
       # Store the release type from workflow input to reuse it across steps
       RELEASE_TYPE: ${{ github.event.inputs.release-type }}
 
+    permissions:
+      contents: write
+      actions: write
+
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v2
+
+      # Install dependencies from requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install wheel twine setuptools build
 
       # Clean dist directory
       - name: Clean dist directory
@@ -49,6 +59,13 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
         continue-on-error: false
+
+      # Clean cache and temporary files
+      - name: Clean cache and temporary files
+        run: |
+          npm cache clean --force
+          pip cache purge
+          rm -rf /tmp/*
 
       # If the release step fails, print and upload the NPM error log
       - name: Print NPM error log
