@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install wheel twine
+          pip install wheel twine setuptools
 
       # Install Node.js dependencies, including release-it
       - name: Install Node.js dependencies
