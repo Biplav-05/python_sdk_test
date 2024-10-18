@@ -12,7 +12,7 @@
     "before:init": [
       "pip install wheel twine"
     ],
-    "after:bump": [
+    "before:bump": [
       "python update_version.py ${version}"
     ],
     "before:release": [
