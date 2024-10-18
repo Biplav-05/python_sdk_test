@@ -1,5 +1,12 @@
 
 
+## 0.1.1 (2024-10-18)
+
+
+### Bug Fixes
+
+* abc ([6aa777a](https://github.com/Biplav-05/python_sdk_test/commit/6aa777aee33351bb8d5d88e1270d8c079660967b))
+
 # 0.1.0 (2024-10-18)
 
 
