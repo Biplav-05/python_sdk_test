@@ -1,0 +1,5 @@
+# Ignore build and distribution directories
+build/
+dist/
+biplav_test.egg-info/
+.venv/
