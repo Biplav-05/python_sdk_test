@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="biplav_test",
-    version="0.1.0",
+    version="1.0.1",
     packages=find_packages(),
     install_requires=[],
     author="Biplav",
