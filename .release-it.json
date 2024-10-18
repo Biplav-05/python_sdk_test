@@ -9,7 +9,6 @@
     "contributors": true
   },
   "hooks": {
-    "before:bump": "python update_version.py ${version}",
     "before:init": [
       "pip install wheel twine"
     ],
