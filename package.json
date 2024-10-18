@@ -1,6 +1,6 @@
 {
   "name": "habibi",
-  "version": "0.1.1",
+  "version": "0.1.2-beta.0",
   "devDependencies": {
     "@release-it/conventional-changelog": "^9.0.0",
     "release-it": "^17.10.0"
