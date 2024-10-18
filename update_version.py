@@ -1,20 +1,16 @@
 import re
 import sys
 
-def update_version(file_path, new_version):
-    with open(file_path, 'r') as file:
-        content = file.read()
-    
-    pattern = r'version\s*=\s*"[^"]+"'
-    replacement = f'version="{new_version}"'
-    
-    new_content = re.sub(pattern, replacement, content)
-    
-    with open(file_path, 'w') as file:
-        file.write(new_content)
+def update_version(version):
+    with open('setup.py', 'r+') as f:
+        content = f.read()
+        f.seek(0)
+        f.write(re.sub(r'version=\"[0-9]+\.[0-9]+\.[0-9]+\"', f'version=\"{version}\"', content))
+        f.truncate()
+
+def main():
+    version = sys.argv[1]
+    update_version(version)
 
 if __name__ == "__main__":
-    new_version = sys.argv[1]
-    print(f"Updating version to: {new_version}")
-    update_version('setup.py', new_version)
-    print("Version updated successfully")
+    main()
