@@ -60,13 +60,6 @@ jobs:
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
         continue-on-error: false
 
-      # Clean cache and temporary files
-      - name: Clean cache and temporary files
-        run: |
-          npm cache clean --force
-          pip cache purge
-          rm -rf /tmp/*
-
       # If the release step fails, print and upload the NPM error log
       - name: Print NPM error log
         if: failure()
