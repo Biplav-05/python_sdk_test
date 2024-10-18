@@ -1,6 +1,6 @@
 {
   "name": "gloveisglo",
-  "version": "0.1.0-beta.0",
+  "version": "0.1.0-rc.0",
   "devDependencies": {
     "@release-it/conventional-changelog": "^9.0.0",
     "release-it": "^17.10.0"
