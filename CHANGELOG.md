@@ -1,5 +1,12 @@
 
 
+## 0.1.2-alpha.0 (2024-10-18)
+
+
+### Features
+
+* abc ([e489ed0](https://github.com/Biplav-05/python_sdk_test/commit/e489ed0f6cd03bb713df0a8ed555ea0dc34a35e3))
+
 ## [0.1.2-beta.0](https://github.com/Biplav-05/python_sdk_test/compare/v0.1.1...v0.1.2-beta.0) (2024-10-18)
 
 ## 0.1.1 (2024-10-18)
