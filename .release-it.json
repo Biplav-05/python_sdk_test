@@ -10,10 +10,10 @@
   },
   "hooks": {
     "before:init": [
-      "pip install wheel twine"
+      "pip install build twine"
     ],
     "after:bump": [
-      "python setup.py sdist bdist_wheel"
+      "python -m build"
     ],
     "after:release": [
       "twine upload dist/*"
