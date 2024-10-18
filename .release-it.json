@@ -3,10 +3,13 @@
   "github": {
     "release": true,
     "releaseName": "Release ${version}",
-    "assets": "dist/*"
+    "preRelease": false,
+    "autoGenerate": true,
+    "tokenRef": "TOKEN_GITHUB",
+    "contributors": true
   },
   "hooks": {
-    "before:bump": "python -c \"import re; with open('setup.py', 'r+') as f: content = f.read(); f.seek(0); f.write(re.sub(r'version=\\\"[0-9]+\\.[0-9]+\\.[0-9]+\\\"', 'version=\\\"${version}\\\"', content)); f.truncate()\"",
+    "before:bump": "python update_version.py ${version}",
     "before:init": [
       "pip install wheel twine"
     ],
