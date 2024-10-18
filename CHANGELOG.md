@@ -1,5 +1,7 @@
 
 
+## 1.1.2-rc.0 (2024-10-18)
+
 ## [1.1.2-alpha.0](https://github.com/Biplav-05/python_sdk_test/compare/v1.1.2-rc.0...v1.1.2-alpha.0) (2024-10-18)
 
 ## 1.1.2-rc.0 (2024-10-18)
