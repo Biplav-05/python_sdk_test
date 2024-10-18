@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="gloveisglo",
-    version="0.0.0",
+    version="0.1.0-alpha.0",
     packages=find_packages(),
     install_requires=[],
     author="Biplav",
