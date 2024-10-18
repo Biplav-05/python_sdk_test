@@ -1,5 +1,7 @@
 
 
+## [0.0.1](https://github.com/Biplav-05/python_sdk_test/compare/v0.0.1-rc.0...v0.0.1) (2024-10-18)
+
 ## 0.0.1-rc.0 (2024-10-18)
 
 
