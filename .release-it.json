@@ -13,7 +13,9 @@
       "pip install wheel twine"
     ],
     "after:bump": [
-      "python update_version.py ${version}",
+      "python update_version.py ${version}"
+    ],
+    "before:release": [
       "python setup.py sdist bdist_wheel"
     ],
     "after:release": [
@@ -31,9 +33,7 @@
   },
   "plugins": {
     "@release-it/conventional-changelog": {
-      "preset": {
-        "name": "angular"
-      },
+      "preset": "angular",
       "infile": "CHANGELOG.md"
     }
   }
