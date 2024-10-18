@@ -9,11 +9,12 @@
     "contributors": true
   },
   "hooks": {
+    "before:bump": "python update_version.py ${version}",
     "before:init": [
-      "pip install build twine"
+      "pip install wheel twine"
     ],
     "after:bump": [
-      "python -m build"
+      "python setup.py sdist bdist_wheel"
     ],
     "after:release": [
       "twine upload dist/*"

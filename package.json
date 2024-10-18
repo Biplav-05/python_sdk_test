@@ -1,6 +1,6 @@
 {
-  "name": "biplav_test",
-  "version": "1.2.0",
+  "name": "habibi",
+  "version": "0.0.0",
   "devDependencies": {
     "@release-it/conventional-changelog": "^9.0.0",
     "release-it": "^17.10.0"
