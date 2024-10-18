@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="gloveisglo",
-    version="0.0.1-alpha.0",
+    version="0.0.0",
     packages=find_packages(),
     install_requires=[],
     author="Biplav",
@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/your-username/my_sample_project",
     classifiers=[
-        "Programming Languag df e :: Python :: 3",
+        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
