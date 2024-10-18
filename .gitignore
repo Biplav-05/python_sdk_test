@@ -3,4 +3,4 @@ build/
 dist/
 biplav_test.egg-info/
 .venv/
-.node_modules/
+node_modules/
