@@ -31,6 +31,12 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
+      # Set Git user
+      - name: Set Git user
+        run: |
+          git config --global user.email ${{ secrets.GIT_USER_EMAIL }}
+          git config --global user.name ${{ secrets.GIT_USER_NAME }}
+
       # Run release-it
       - name: Run release-it
         run: |
@@ -40,8 +46,8 @@ jobs:
             npx release-it --preRelease=$RELEASE_TYPE
           fi
         env:
-          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
 
       # If the release step fails, print and upload the NPM error log

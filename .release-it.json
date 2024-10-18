@@ -1,0 +1,36 @@
+{
+  "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+  "github": {
+    "release": true,
+    "releaseName": "Release ${version}",
+    "assets": "dist/*"
+  },
+  "hooks": {
+    "before:init": [
+      "pip install wheel twine"
+    ],
+    "after:bump": [
+      "python setup.py sdist bdist_wheel"
+    ],
+    "after:release": [
+      "twine upload dist/*"
+    ]
+  },
+  "git": {
+    "commitMessage": "chore(release): ${version}",
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": true,
+    "push": true
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "angular"
+      },
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
