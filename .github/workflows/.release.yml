@@ -53,6 +53,8 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+        continue-on-error: false
+
 
       # If the release step fails, print and upload the NPM error log
       - name: Print NPM error log
