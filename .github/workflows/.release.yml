@@ -15,10 +15,6 @@ jobs:
       # Store the release type from workflow input to reuse it across steps
       RELEASE_TYPE: ${{ github.event.inputs.release-type }}
 
-    permissions:
-      contents: write
-      actions: write
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
@@ -26,22 +22,9 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install wheel twine setuptools
-
       # Clean dist directory
       - name: Clean dist directory
         run: rm -rf dist/*
-
-      # Verify dist directory is clean
-      - name: Verify dist directory is clean
-        run: |
-          if [ -n "$(ls -A dist)" ]; then
-            echo "Error: dist directory not clean"
-            exit 1
-          fi
 
       # Install Node.js dependencies, including release-it
       - name: Install Node.js dependencies
