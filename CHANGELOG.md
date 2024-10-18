@@ -1,5 +1,12 @@
 
 
+# 1.2.0 (2024-10-18)
+
+
+### Features
+
+* aaa ([64cb943](https://github.com/Biplav-05/python_sdk_test/commit/64cb9433bdf0dfd0d29599a781c8a23f93cc9dd5))
+
 ## 1.1.4-beta.0 (2024-10-18)
 
 ## 1.1.3 (2024-10-18)
