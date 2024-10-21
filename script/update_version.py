@@ -1,8 +1,9 @@
 import re 
 import sys
+import os
 
 '''
-This function updates the version number in a specified file (typically setup.py) 
+This function updates the version number in a specified file (setup.py) 
 by replacing the current version string with a new version provided as an argument.
 '''
 def update_version(file_path, new_version):
@@ -24,5 +25,9 @@ def update_version(file_path, new_version):
             file.write(new_content)
 
 if __name__ == "__main__":
+    # Ensure the correct path to setup.py from any running directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    setup_file_path = os.path.join(script_dir, '..', 'setup.py')
+    
     # Running the update_version function with the provided file path and new version
-    update_version('../setup.py', sys.argv[1])
+    update_version(setup_file_path, sys.argv[1])
