@@ -20,6 +20,14 @@ jobs:
       actions: write
 
     steps:
+      # Validate the release type
+      - name: Validate release type
+        run: |
+          if [[ "$RELEASE_TYPE" != "regular" && "$RELEASE_TYPE" != "alpha" && "$RELEASE_TYPE" != "beta" && "$RELEASE_TYPE" != "rc" ]]; then
+            echo "Error: Invalid release type '$RELEASE_TYPE'. It must be one of: regular, alpha, beta, or rc."
+            exit 1
+          fi
+  
       - name: Checkout source code
         uses: actions/checkout@v3
 
@@ -36,7 +44,7 @@ jobs:
       - name: Clean dist directory
         run: rm -rf dist/*
 
-      # Install Node.js dependencies, including release-it
+      # Install Node.js dependencies
       - name: Install Node.js dependencies
         run: npm ci
 
@@ -58,9 +66,13 @@ jobs:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
-        continue-on-error: false
 
-      # If the release step fails, print and upload the NPM error log
+      # Print success message if release-it completes successfully
+      - name: Print success message
+        if: success()
+        run: echo "Release and publishing completed successfully!"
+      
+        # If the release step fails, print and upload the NPM error log
       - name: Print NPM error log
         if: failure()
         run: |
