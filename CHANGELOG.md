@@ -1,5 +1,12 @@
 
 
+## 0.1.1-rc.1 (2024-10-21)
+
+
+### Bug Fixes
+
+* rc ([eb2c942](https://github.com/Biplav-05/python_sdk_test/commit/eb2c942dab006ddd5c842d77764b5b2b09009422))
+
 ## 0.1.1-rc.0 (2024-10-21)
 
 
