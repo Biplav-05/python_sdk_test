@@ -1,5 +1,12 @@
 
 
+## 0.1.1-rc.0 (2024-10-21)
+
+
+### Bug Fixes
+
+* file path ([8574f91](https://github.com/Biplav-05/python_sdk_test/commit/8574f91483fa44a05effd8fb82d8bda5bec52b1c))
+
 # [0.1.0](https://github.com/Biplav-05/python_sdk_test/compare/v0.1.0-rc.0...v0.1.0) (2024-10-18)
 
 # 0.1.0-rc.0 (2024-10-18)
