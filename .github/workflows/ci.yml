@@ -1,0 +1,54 @@
+name: Python MR Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        
+      - name: Install Black
+        run: pip install black
+        
+      - name: Run Black (Code Format Check)
+        run: black .
+        
+  lint-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+          
+      - name: Install Flake8
+        run: pip install flake8
+        
+      - name: Run Flake8 (Lint Check)
+        run: flake8 .
+        
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install Bandit
+        run: pip install bandit
+        
+      - name: Run Bandit (Static Analysis)
+        run: bandit -r .
