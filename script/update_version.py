@@ -27,6 +27,5 @@ if __name__ == "__main__":
     # Ensure the correct path to setup.py from any running directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
     setup_file_path = os.path.join(script_dir, '..', 'setup.py')
-    
     # Running the update_version function with the provided file path and new version
     update_version(setup_file_path, sys.argv[1])
