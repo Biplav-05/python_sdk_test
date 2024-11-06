@@ -1,10 +1,14 @@
-import re 
+import re
 import sys
 import os
+
+
 '''
 This function updates the version number in a specified file (setup.py) 
 by replacing the current version string with a new version provided as an argument.
 '''
+
+
 def update_version(file_path, new_version):
     # Opening the file in read mode
     with open(file_path, 'r') as file:
